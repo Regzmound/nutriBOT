@@ -1,0 +1,13 @@
+.global-btn {
+    height: 52px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    background-color: #66BB6A;
+}
+
+.global-btn:hover{
+    background-color: #57a55b;
+    cursor: pointer;
+}
