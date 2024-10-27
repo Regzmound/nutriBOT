@@ -1,9 +1,20 @@
+:root{
+
+  /* Text colors */
+  --primary-text-color: #66BB6A;
+  --secondary-text-color: #3F3F3F;
+
+  /*Button Colors*/
+  --primary-btn-color: #66BB6A;
+  --btn-hover-color: #5DA565;
+
+  /*Background Colors*/
+  --primary-background-color: #3F3F3F;
+
+}
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-span{
-  color: #66BB6A;
 }

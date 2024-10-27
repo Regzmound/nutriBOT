@@ -7,8 +7,9 @@ function LoginForm() {
     className='login-form'>
         <input type="text" placeholder='Email' id='email'/>
         <input type="password" placeholder='Password' id='pass'/>
-        <a href="" className='forgot-pass'><span>Forgot Password?</span></a>
+        <a href="" className='forgot-pass'><p>Forgot Password?</p></a>
         <Button label={"Login"} onButtonClick={()=>{}}/>
+        <p className='no-acc'>Don&apos;t have an account? <a href="">Signup</a></p>
     </form>
   )
 }
