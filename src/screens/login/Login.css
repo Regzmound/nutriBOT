@@ -61,35 +61,11 @@
     .login-container {
       width: 80%;
     }
-  
-    .login-form {
-      gap: 20px;
-    }
-  
-    .login-form input {
-      height: 48px;
-      font-size: 14px;
-    }
   }
   
   /* Mobile view (up to 600px) */
   @media (max-width: 600px) {
     .login-container {
       width: 90%;
-    }
-  
-    .label {
-      font-size: 14px;
-      margin: 10px 0;
-    }
-  
-    .login-form input {
-      height: 44px;
-      font-size: 14px;
-      padding-left: 15px;
-    }
-  
-    .forgot-pass, .no-acc a {
-      font-size: 12px;
     }
   }
