@@ -1,0 +1,71 @@
+.container{
+    min-height: 100vh;
+    place-content: center;
+    place-items: center;
+}
+.login-container{
+    width: 450px;
+}
+
+.logo {
+    margin: auto;
+}
+
+.label {
+    margin: 15px 0;
+    font-weight: bolder;
+}
+
+.label span{
+    color: var(--primary-text-color);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.login-form input {
+    outline: none;
+    width: 100%;
+    height: 52px;
+    padding-left: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.forgot-pass {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 600;
+    text-align: end;
+}
+
+.forgot-pass:hover{
+    color: var(--primary-text-color);
+}
+
+.no-acc a{
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--primary-text-color);
+}
+.no-acc a:hover{
+    color: var(--btn-hover-color);
+}
+
+
+/* Tablet view (up to 768px) */
+@media (max-width: 768px) {
+    .login-container {
+      width: 80%;
+    }
+  }
+  
+  /* Mobile view (up to 600px) */
+  @media (max-width: 600px) {
+    .login-container {
+      width: 90%;
+    }
+  }
