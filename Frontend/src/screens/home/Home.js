@@ -25,6 +25,10 @@ function HomeScreen() {
         }, 500);
       }
     };
+
+    const newMessage = () =>{
+      window.location.reload()
+    }
   return (
     <>
     <NavBar />
@@ -57,7 +61,7 @@ function HomeScreen() {
         </div>
         <div className='chat-input-container'>
         {messages.length > 0 && (
-          <button className='new-btn' onClick={()=> {}}><FontAwesomeIcon icon={faPlus}/></button>
+          <button className='new-btn' onClick={newMessage}><FontAwesomeIcon icon={faPlus}/></button>
         )}
           <input
             type="text"
