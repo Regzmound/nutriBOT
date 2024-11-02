@@ -1,0 +1,5 @@
+.profile--screen-container{
+    inset: 1;
+    position: fixed;
+    width: 300px;
+}
