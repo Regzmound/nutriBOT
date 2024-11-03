@@ -3,8 +3,10 @@ import Button from '../../../components/button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEye, faEyeSlash, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios'; // Import axios for HTTP requests
+import { useNavigate } from 'react-router-dom';
 
 function SignupForm() {
+    const navigate = useNavigate()
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,24 +18,32 @@ function SignupForm() {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission
-        if (password !== confirmPassword) {
-            alert("Passwords do not match!");
-            return;
-        }
-
-        try {
-            const response = await axios.post('http://localhost:5000/signup', {
-                username,
-                email,
-                password,
-            });
-            alert(response.data); // Show success message
-        } catch (error) {
-            alert('Error signing up: ' + error.response.data);
-        }
-    };
-
+      e.preventDefault();
+  
+      if (!username || !email || !password || !confirmPassword) {
+          alert("All fields are required!");
+          return;
+      }
+  
+      if (password !== confirmPassword) {
+          alert("Passwords do not match!");
+          return;
+      }
+  
+      try {
+          const response = await axios.post('http://localhost:5000/api/signup', {
+              username,
+              email,
+              password,
+          });
+          alert(response.data.message || 'Signup successful!');
+          navigate('/login')
+      } catch (error) {
+          const errorMessage = error.response?.data?.message || 'Error signing up';
+          alert(errorMessage);
+      }
+  };
+  
     return (
         <form onSubmit={handleSubmit} className='signup-form'>
             <div className='input-container'>
