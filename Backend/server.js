@@ -1,18 +1,18 @@
-// server.js
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 const port = 5000; // You can choose any port
 
 // Enable CORS
 app.use(cors());
-require('dotenv').config();
+app.use(express.json()); // Parse JSON bodies
 
 // Create a connection to the database
 const db = mysql.createConnection({
-   host: process.env.DB_HOST,
+    host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME
@@ -27,12 +27,15 @@ db.connect(err => {
     console.log('Connected to database.');
 });
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the nutribot API!'); // You can customize this message
-});
+// Import the auth routes
+const signupRoutes = require('./routes/signup');
+const loginRoutes = require('./routes/login');
+
+// Use the signup and login routes
+app.use('/api/signup', signupRoutes);
+app.use('/api/login', loginRoutes);
 
 
-// Create a sample API endpoint
 app.get('/api/data', (req, res) => {
     db.query('SELECT * FROM yourTableName', (err, results) => {
         if (err) throw err;
@@ -44,3 +47,6 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the nutribot API!'); // You can customize this message
+});
