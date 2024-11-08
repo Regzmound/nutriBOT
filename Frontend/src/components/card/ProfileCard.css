@@ -19,11 +19,13 @@
   display: flex;
   align-items: center;
   margin: 20px 0;
+  justify-content: center;
 }
 
 .user-name{
     padding-right: 20px;
 }
+
 
 .user-name-input {
   font-size: 18px;
@@ -33,12 +35,6 @@
   width: 100%;
   outline: none;
   margin-right: 20px;
-}
-
-.edit-btn{
-  outline: none;
-  border: none;
-  background-color: transparent;
 }
 
 .edit-icon{
@@ -102,10 +98,40 @@
   background-color: var(--primary-text-color);
 }
 
+.save-user-name-btn{
+  background-color: rgb(70, 184, 70);
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 30%;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 50%;
+  place-self: start;
+}
+
+.input-group{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .profile-card {
       width: 90%; 
       padding: 15px;
+  }
+  .user-name-container{
+    width: 100%;
+  }
+  .username-form{
+    width: 100%;
   }
 
   .profile-details-form {
@@ -121,6 +147,15 @@
   .profile-card-logo {
       height: 100px; 
   }
+
+  .user-name-container{
+    width: 100%;
+  }
+
+  .username-form{
+    width: 100%;
+  }
+  
 
   .profile-details {
       padding: 10px 8px; 

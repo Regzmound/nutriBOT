@@ -1,54 +1,38 @@
 const express = require('express');
-const mysql = require('mysql2');
 const cors = require('cors');
-require('dotenv').config();
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
-const port = 5000; // You can choose any port
+const port = 5000;
 
-// Enable CORS
 app.use(cors());
-app.use(express.json()); // Parse JSON bodies
+app.use(express.json());
+// Middleware
+app.use(bodyParser.json()); // Parse JSON bodies
+app.use(cors()); // Enable CORS if needed
 
-// Create a connection to the database
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-});
-
-module.exports = db
-
-// Connect to the database
-db.connect(err => {
-    if (err) {
-        console.error('Database connection failed: ' + err.stack);
-        return;
-    }
-    console.log('Connected to database.');
-});
-
-// Import the auth routes
-const signupRoutes = require('./routes/signup');
+//Routes
+const signupRoutes = require('./routes/signup');  
 const loginRoutes = require('./routes/login');
+const userRoutes = require('./routes/user')
 
-// Use the signup and login routes
-app.use('/api/signup', signupRoutes);
-app.use('/api/login', loginRoutes);
+//Use routes
+app.use('/api/signup', signupRoutes);  // Use signup route
+app.use('/api/login', loginRoutes);    // Use login route
+app.use('/api/user', userRoutes);      //User user route
 
-
-app.get('/api/data', (req, res) => {
-    db.query('SELECT * FROM yourTableName', (err, results) => {
-        if (err) throw err;
-        res.json(results);
-    });
+// Root route
+app.get('/', (req, res) => {
+    res.send('Welcome to the nutribot API!');
 });
 
+// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the nutribot API!'); // You can customize this message
-});
+

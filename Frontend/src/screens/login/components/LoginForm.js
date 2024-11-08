@@ -31,12 +31,14 @@ function LoginForm() {
             });
             // Assuming your backend returns a success status
             if (response.data.success) {
+                localStorage.setItem('token', response.data.token);
+                console.log('Login successful');
                 navigate('/home'); // Redirect to home on successful login
             } else {
                 alert(response.data.message); // Show alert message from server response
             }
         } catch (error) {
-            console.error('Login error:', error);
+            console.error('Login failed:', error.response?.data?.message || 'Something went wrong');
             alert('Login failed. Please check your credentials and try again.'); // Generic error alert
         }
     };
@@ -66,7 +68,7 @@ function LoginForm() {
                 />
                 <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} className='eyecon' onClick={togglePassVisibility} />
             </div>
-            <a href="" className='forgot-pass'><p>Forgot Password?</p></a>
+            <a href="#" className='forgot-pass'><p>Forgot Password?</p></a>
             <Button label={"Login"} onButtonClick={onLoginButtonClick} />
             <p className='no-acc'>Don&apos;t have an account? <a href="/signup">Signup</a></p>
         </form>

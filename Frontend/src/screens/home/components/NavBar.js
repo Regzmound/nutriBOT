@@ -25,7 +25,7 @@ function NavBar() {
   return (
     <nav className='nav-bar'>
         <h1 className='logo-text'>NUTRI<span>BOT</span></h1>
-        <div className='profile-container' onClick={onButtonClick}></div>
+          <img src="images/profile.jpg" alt="Profile Logo" className='profile-image' onClick={onButtonClick}/>
         {isOpen && (
           <ProfileDropDown onProfileClicked={openProfileCard}/>
         )}
