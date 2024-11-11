@@ -68,7 +68,7 @@ function LoginForm() {
                 />
                 <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} className='eyecon' onClick={togglePassVisibility} />
             </div>
-            <a href="#" className='forgot-pass'><p>Forgot Password?</p></a>
+            <a href="/" className='forgot-pass'><p>Forgot Password?</p></a>
             <Button label={"Login"} onButtonClick={onLoginButtonClick} />
             <p className='no-acc'>Don&apos;t have an account? <a href="/signup">Signup</a></p>
         </form>

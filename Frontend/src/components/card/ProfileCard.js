@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import './ProfileCard.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faEdit} from '@fortawesome/free-solid-svg-icons'
+import {faEdit, faCamera} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
 function ProfileCard({ onClose }) {
@@ -10,6 +10,8 @@ function ProfileCard({ onClose }) {
   const [tempUserName, setTempUserName] = useState(userName); 
   const [loading, setLoading] = useState(false);  // State to handle loading
   const [userDetails, setUserDetails] = useState({});  // State to store fetched user details
+  const [profileImage, setProfileImage] = useState('/images/defProfile.webp');
+  const fileInputRef = useRef(null);
   
   // Fetch user details from the backend
   const fetchUserDetails = async () => {
@@ -100,14 +102,36 @@ const getHealthStatus = (bmi) => {
   }
 };
 
+
+//handle update profile pic
+
+
 const status = getHealthStatus(bmi)
   return (
     <div className="profile-card-overlay">
 
     <div className="profile-card">
       <button className="close-button" onClick={onClose}>X</button>
-      <img src="images/profile.jpg" alt="Logo" className='profile-card-logo'/>
-
+      <div className='profile-container'>
+     <img src="images/profile.jpg" alt="Logo" className='profile-card-logo'/>
+     <div
+            className="hover-cam"
+              // onClick={handleButtonClick}
+            >
+              <FontAwesomeIcon
+                icon={faCamera}
+                className="camera-icon"
+              />
+            </div>
+            
+      </div>
+      <input
+                type="file"
+                accept="image/*"
+                ref={fileInputRef}
+                // onChange={handleImageUpload}
+                className="hidden-inp"
+              />
      
       {loading ? <p>Loading...</p> : null}
 

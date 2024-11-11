@@ -15,8 +15,8 @@ function ProfileDropDown({onProfileClicked}) {
     <div className="dropdown-card">
           <ul className="card-menu">
             <li className="card-item" onClick={onProfileClicked}><FontAwesomeIcon icon={faUser} className='card-icon'/>Profile</li>
-            <li className="card-item" onClick={()=>{onItemClick("/")}}><FontAwesomeIcon icon={faFileContract} className='card-icon'/>Terms & Privacy</li>
-            <li className="card-item" onClick={()=>{onItemClick("/")}}><FontAwesomeIcon icon={faInfoCircle} className='card-icon'/>About</li>
+            <li className="card-item" onClick={()=>{onItemClick("/terms")}}><FontAwesomeIcon icon={faFileContract} className='card-icon'/>Terms & Privacy</li>
+            <li className="card-item" onClick={()=>{onItemClick("/about")}}><FontAwesomeIcon icon={faInfoCircle} className='card-icon'/>About</li>
             <li className="card-item" onClick={()=>{onItemClick("/")}}><FontAwesomeIcon icon={faSignOut} className='card-icon'/>Logout</li>
           </ul>
         </div>

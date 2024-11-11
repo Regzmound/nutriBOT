@@ -11,6 +11,16 @@
   z-index: 1000;
 }
 
+.profile-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hidden-inp {
+  opacity: 0;
+}
+
 .user-name span{
   color: var(--primary-text-color);
 }
@@ -94,6 +104,33 @@
   font-size: 16px;
 }
 
+.hover-cam {
+  position: absolute;
+  inset: 0;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.camera-icon{
+  color: white;
+  height: 30px;
+  width: 30px;
+}
+
+.hover-cam:hover{
+  opacity: 1;
+}
+
 .save-btn:hover{
   background-color: var(--primary-text-color);
 }
@@ -130,6 +167,10 @@
   .user-name-container{
     width: 100%;
   }
+  .hover-cam{
+    height: 140px;
+    width: 140px;
+  }
   .username-form{
     width: 100%;
   }
@@ -155,6 +196,11 @@
   .username-form{
     width: 100%;
   }
+
+  .hover-cam{
+    width: 130px;
+    height: 130px;
+  }
   
 
   .profile-details {
@@ -164,4 +210,5 @@
   .save-btn {
       font-size: 14px; 
   }
+
 }
